@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://l52uy4uobcth"]
+
+[ext_resource type="Script" uid="uid://cvb6hfr6qi44y" path="res://player.gd" id="1_215dg"]
+[ext_resource type="Script" uid="uid://dy5iv2b7ixqkm" path="res://healthUi.gd" id="2_alpf2"]
+[ext_resource type="Texture2D" uid="uid://71fyi4mc284s" path="res://Sprites/Player/empty_hearts.png" id="3_ee014"]
+[ext_resource type="Texture2D" uid="uid://erg7lhaaxyte" path="res://Sprites/Player/empry_heart.png" id="3_i60tq"]
+[ext_resource type="Texture2D" uid="uid://5ql8o6d7uluo" path="res://Sprites/Player/Hearts.png" id="4_i60tq"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(481, 689)
+script = ExtResource("1_215dg")
+
+[node name="HealthUI" type="CanvasLayer" parent="."]
+script = ExtResource("2_alpf2")
+full_heart = ExtResource("3_i60tq")
+empty_heart = ExtResource("4_i60tq")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthUI"]
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 502.0
+offset_bottom = 103.0
+max_value = 10.0
+value = 7.0
+texture_under = ExtResource("3_ee014")
+texture_progress = ExtResource("4_i60tq")
