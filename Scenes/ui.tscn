@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwgbx8bpipvjc"]
+
+[ext_resource type="Script" uid="uid://cdw2y248n458a" path="res://Scenes/doping_bar.gd" id="1_jxero"]
+
+[node name="Ui" type="CanvasLayer"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 277.0
+offset_bottom = 40.0
+
+[node name="DopingBar" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 117.0
+offset_right = 431.0
+offset_bottom = 130.0
+max_value = 3.0
+show_percentage = false
+script = ExtResource("1_jxero")
+
+[node name="DopingTimer" type="Timer" parent="UI/DopingBar"]
+wait_time = 5.0
+one_shot = true
+autostart = true
