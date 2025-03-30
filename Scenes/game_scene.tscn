@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://daxtebvligaff"]
+
+[ext_resource type="Script" uid="uid://bdflb3h8il1is" path="res://Scripts/game_controller.gd" id="1_x87qo"]
+[ext_resource type="Texture2D" uid="uid://5y800xddxrgm" path="res://Sprites/Placeholder/background.png" id="2_b6fju"]
+[ext_resource type="PackedScene" uid="uid://g1bw1hw50xsn" path="res://Scenes/obstacle_section.tscn" id="3_fiftr"]
+[ext_resource type="PackedScene" uid="uid://duv3je0tdmyqo" path="res://Scenes/Player.tscn" id="4_1ixah"]
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_x87qo")
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(-908, 192)
+scale = Vector2(0.4, 0.4)
+
+[node name="Gym" type="Parallax2D" parent="Background"]
+texture_filter = 1
+scroll_offset = Vector2(3072, 0)
+repeat_size = Vector2(3072, 0)
+repeat_times = 3
+
+[node name="Gym" type="Sprite2D" parent="Background/Gym"]
+texture_filter = 1
+texture_repeat = 3
+texture = ExtResource("2_b6fju")
+
+[node name="ObstacleSection" parent="." instance=ExtResource("3_fiftr")]
+position = Vector2(-1536, 324)
+
+[node name="Player" parent="." instance=ExtResource("4_1ixah")]
+position = Vector2(-1480, 284)
