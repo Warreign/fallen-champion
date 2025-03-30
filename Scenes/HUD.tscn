@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpniclh8v4db5"]
+[gd_scene load_steps=6 format=3 uid="uid://d0e5de1q55b0d"]
 
-[ext_resource type="Script" uid="uid://dnxt51olnnl2b" path="res://Scenes/hud.gd" id="1_jo1ms"]
+[ext_resource type="Script" path="res://Scenes/hud.gd" id="1_jo1ms"]
 [ext_resource type="Script" uid="uid://cdw2y248n458a" path="res://Scenes/doping_bar.gd" id="1_jxero"]
 [ext_resource type="Texture2D" uid="uid://cmwvly4r868ad" path="res://Sprites/Player/EmptyHearts.png" id="3_s3jbq"]
 [ext_resource type="Texture2D" uid="uid://dw82hjp5w4d1" path="res://Sprites/Player/NewHearts.png" id="4_c3eba"]
-[ext_resource type="Script" uid="uid://dw6n04mg531iy" path="res://Scenes/heart_bar.gd" id="5_c3eba"]
+[ext_resource type="Script" path="res://Scenes/heart_bar.gd" id="5_c3eba"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_jo1ms")

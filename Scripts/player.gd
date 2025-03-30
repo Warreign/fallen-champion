@@ -40,12 +40,14 @@ func hit(position_x: float):
 	$HitTimer.start()
 	HUD.heart_bar.decrement_hearts()
 	print("Hit obstacle")
+	AudioManager.hit.play(0.33)
 
 func die():
 	animated_sprite.play("die")
 	is_dying = true
 	is_dead = true
 	$DieTimer.start()
+	AudioManager.hit.play(0.33)
 
 func _ready() -> void:
 	HUD.doping_bar.connect("doping_full", die)
@@ -77,7 +79,7 @@ func _physics_process(delta: float) -> void:
 		curr_speed = lerp(curr_speed, 0.0, SCALE_SPEED * delta)
 
 	if not is_running:
-		curr_speed = 0
+		curr_speed = 0.0
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -122,16 +124,18 @@ func _input(event: InputEvent) -> void:
 		is_shrank = true
 		$SlideTimer.start()
 		animated_sprite.play("slide")
+		AudioManager.slide.play()
 		# original_scale = scale
 	
 	# Handle jump.
 	if event.is_action_pressed("jump"):
 		is_jumping = true
 		if is_running and is_on_floor():
-			print("jumped")
+			AudioManager.jump.play()
 			animated_sprite.play("jump")
 			is_midair = true
 			velocity.y = JUMP_VELOCITY
+			print("jumped")
 
 	if event.is_action_released("jump"):
 		is_jumping = false
