@@ -1,30 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://daxtebvligaff"]
+[gd_scene load_steps=5 format=3 uid="uid://c2ikv7lfbgvcw"]
 
 [ext_resource type="Script" uid="uid://bdflb3h8il1is" path="res://Scripts/game_controller.gd" id="1_x87qo"]
-[ext_resource type="Texture2D" uid="uid://5y800xddxrgm" path="res://Sprites/Placeholder/background.png" id="2_b6fju"]
-[ext_resource type="PackedScene" uid="uid://g1bw1hw50xsn" path="res://Scenes/obstacle_section.tscn" id="3_fiftr"]
+[ext_resource type="Texture2D" uid="uid://dl661vkd7mhqu" path="res://Sprites/background_fix.png" id="2_fiftr"]
+[ext_resource type="PackedScene" uid="uid://cngshysy2n2f3" path="res://Scenes/obstacle_section.tscn" id="3_fiftr"]
 [ext_resource type="PackedScene" uid="uid://duv3je0tdmyqo" path="res://Scenes/Player.tscn" id="4_1ixah"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_x87qo")
 
 [node name="Background" type="Node2D" parent="."]
-position = Vector2(-908, 192)
-scale = Vector2(0.4, 0.4)
+position = Vector2(1484, -56)
 
 [node name="Gym" type="Parallax2D" parent="Background"]
 texture_filter = 1
-scroll_offset = Vector2(3072, 0)
+scale = Vector2(1.00051, 1)
 repeat_size = Vector2(3072, 0)
 repeat_times = 3
 
 [node name="Gym" type="Sprite2D" parent="Background/Gym"]
 texture_filter = 1
 texture_repeat = 3
-texture = ExtResource("2_b6fju")
+texture = ExtResource("2_fiftr")
 
 [node name="ObstacleSection" parent="." instance=ExtResource("3_fiftr")]
-position = Vector2(-1536, 324)
+position = Vector2(-8, 280)
+scale = Vector2(1.3, 1.3)
 
 [node name="Player" parent="." instance=ExtResource("4_1ixah")]
-position = Vector2(-1480, 284)
+position = Vector2(88, 184)
+scale = Vector2(2.5, 2.5)
+SPEED = 500.0
+
+[node name="RemoteTransform2D" parent="Player" index="5"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+texture_filter = 2
+position = Vector2(88, 184)
+scale = Vector2(2.5, 2.5)
+offset = Vector2(400, -200)
+limit_top = -150
+limit_bottom = 0
+drag_vertical_enabled = true
+drag_top_margin = 0.4
+drag_bottom_margin = 0.05
+
+[editable path="Player"]

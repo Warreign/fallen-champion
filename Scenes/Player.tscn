@@ -11,10 +11,7 @@ height = 72.0
 script = ExtResource("1_v0iea")
 
 [node name="SlideTimer" type="Timer" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(152, -56)
-zoom = Vector2(3, 3)
+one_shot = true
 
 [node name="Colca" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)
@@ -23,7 +20,17 @@ shape = SubResource("CapsuleShape2D_b5gf2")
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = ExtResource("2_kyqiw")
-animation = &"slide"
+animation = &"idle"
 autoplay = "idle"
 
+[node name="DieTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HitTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+
 [connection signal="timeout" from="SlideTimer" to="." method="_on_slide_timer_timeout"]
+[connection signal="timeout" from="DieTimer" to="." method="_on_die_timer_timeout"]
+[connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

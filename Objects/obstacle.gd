@@ -28,6 +28,11 @@ func set_new_height(new_height: float):
 
 	collider_shape.size.y = COLLIDER_BASE_HEIGHT * height_scale
 
+func _on_body_entered(body: Node) -> void:
+	if body is Player:
+		(body as Player).hit(position.x)
+		print("Player hit")
+
 func _input(event: InputEvent) -> void:
 	if (event is InputEventKey) && !event.is_echo():
 		var key_event = event as InputEventKey
