@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dxeobwoqjychk"]
 
 [ext_resource type="Script" uid="uid://8kpr5keus1hb" path="res://Scripts/audio_manager.gd" id="1_sm2tf"]
-[ext_resource type="AudioStream" uid="uid://d2f3bml2apbwa" path="res://Audio/fallen_champion0_1_1.wav" id="2_4tj6f"]
+[ext_resource type="AudioStream" uid="uid://b46sro4t7hyap" path="res://Audio/fallen_champion0_1_3.wav" id="2_0hehx"]
 [ext_resource type="AudioStream" uid="uid://wlrfwct5v8km" path="res://Audio/667297__pekena_larva__voc_male_jump_05.wav" id="3_0hehx"]
 [ext_resource type="AudioStream" uid="uid://0jdbwu012orc" path="res://Audio/731505__soundbitersfx__npcplayer-damage-grunts-male-[AudioTrimmer.com]-trimmed(1).wav" id="4_mjqhu"]
 [ext_resource type="AudioStream" uid="uid://x0w7q4bkl4l7" path="res://Audio/health-pickup-6860.mp3" id="5_5kf6k"]
@@ -10,7 +10,7 @@
 script = ExtResource("1_sm2tf")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_4tj6f")
+stream = ExtResource("2_0hehx")
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_0hehx")
