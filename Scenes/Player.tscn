@@ -1,27 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://duv3je0tdmyqo"]
+[gd_scene load_steps=4 format=3 uid="uid://duv3je0tdmyqo"]
 
-[ext_resource type="Script" uid="uid://ckru8b1hcy4ce" path="res://Scripts/character_body_2d.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://ckru8b1hcy4ce" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="SpriteFrames" uid="uid://dyvvekwca6b61" path="res://Resources/player_animation.tres" id="2_kyqiw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b5gf2"]
-height = 40.0
+radius = 15.0
+height = 72.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-scale = Vector2(4.43362, 4.54911)
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_v0iea")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -10.0
-offset_top = -18.0
-offset_right = 10.0
-offset_bottom = 22.0
-color = Color(0.192157, 1, 0.294118, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_b5gf2")
 
 [node name="SlideTimer" type="Timer" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(152, -56)
+zoom = Vector2(3, 3)
+
+[node name="Colca" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("CapsuleShape2D_b5gf2")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("2_kyqiw")
+animation = &"slide"
+autoplay = "idle"
 
 [connection signal="timeout" from="SlideTimer" to="." method="_on_slide_timer_timeout"]

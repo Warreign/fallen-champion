@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dppv2vr31afbu"]
+
+[ext_resource type="PackedScene" uid="uid://c76fiu1h435lh" path="res://Objects/obstacle.tscn" id="1_xiisi"]
+[ext_resource type="Texture2D" uid="uid://di2sfuf7takke" path="res://Sprites/metal_obstacle.png" id="2_vkl8x"]
+
+[node name="MetalObstacle" instance=ExtResource("1_xiisi")]
+height_scale = 1.0
+
+[node name="NinePatchRect" parent="." index="0"]
+offset_left = -24.5
+offset_top = -97.0
+offset_right = 24.5
+texture = ExtResource("2_vkl8x")
+region_rect = Rect2(0, 0, 49, 61)
+patch_margin_top = 18
+patch_margin_bottom = 25
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-0.5, -50.25)

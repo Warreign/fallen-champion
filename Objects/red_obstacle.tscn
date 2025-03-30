@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt0vfigjjvk46"]
+
+[ext_resource type="PackedScene" uid="uid://c76fiu1h435lh" path="res://Objects/obstacle.tscn" id="1_ybc5x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybc5x"]
+size = Vector2(19, 90)
+
+[node name="RedObstacle" instance=ExtResource("1_ybc5x")]
+height_scale = 2.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(2.5, -45)
+shape = SubResource("RectangleShape2D_ybc5x")
