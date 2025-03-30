@@ -1,20 +1,28 @@
-[gd_scene format=3 uid="uid://bbt7namjs0g6t"]
+[gd_scene load_steps=2 format=3 uid="uid://bbt7namjs0g6t"]
+
+[ext_resource type="Texture2D" uid="uid://wpojb6flqolp" path="res://Sprites/StartBackground.png" id="1_r305v"]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="StartBackground" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576.75, 325)
+scale = Vector2(5.24429, 5.03125)
+texture = ExtResource("1_r305v")
+
 [node name="Start" type="Button" parent="."]
-offset_left = 449.0
-offset_top = 188.0
-offset_right = 658.0
-offset_bottom = 261.0
+offset_left = 533.0
+offset_top = 185.0
+offset_right = 862.0
+offset_bottom = 244.0
 text = "Start
 "
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 449.0
-offset_top = 270.0
-offset_right = 658.0
-offset_bottom = 343.0
+offset_left = 538.0
+offset_top = 337.0
+offset_right = 867.0
+offset_bottom = 394.0
 text = "Quit
 
 "
