@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cngshysy2n2f3"]
+[gd_scene load_steps=6 format=3 uid="uid://cngshysy2n2f3"]
 
 [ext_resource type="Script" uid="uid://duqvt7mchhaf1" path="res://Scenes/obstacle_section.gd" id="1_tycbi"]
 [ext_resource type="PackedScene" uid="uid://dt0vfigjjvk46" path="res://Objects/red_obstacle.tscn" id="3_3v0ac"]
 [ext_resource type="PackedScene" uid="uid://dppv2vr31afbu" path="res://Objects/metal_obstacle.tscn" id="3_rucf3"]
+[ext_resource type="PackedScene" uid="uid://bmau4n8otxuv2" path="res://Objects/upper_obstacle.tscn" id="5_rxab1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tycbi"]
 
@@ -10,7 +11,7 @@
 script = ExtResource("1_tycbi")
 
 [node name="DebugLine" type="ColorRect" parent="."]
-offset_right = 3000.0
+offset_right = 20000.0
 offset_bottom = 4.0
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -27,5 +28,8 @@ position = Vector2(1020, 4)
 [node name="MetalObstacle2" parent="." instance=ExtResource("3_rucf3")]
 position = Vector2(1540, 4)
 
-[node name="MetalObstacle3" parent="." instance=ExtResource("3_rucf3")]
-position = Vector2(2056, 4)
+[node name="Obstacle2" parent="." instance=ExtResource("5_rxab1")]
+position = Vector2(2408, -8)
+
+[node name="Obstacle3" parent="." instance=ExtResource("5_rxab1")]
+position = Vector2(2796, 0)

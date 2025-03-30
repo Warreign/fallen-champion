@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpniclh8v4db5"]
+
+[ext_resource type="Script" uid="uid://dnxt51olnnl2b" path="res://Scenes/hud.gd" id="1_jo1ms"]
+[ext_resource type="Script" uid="uid://cdw2y248n458a" path="res://Scenes/doping_bar.gd" id="1_jxero"]
+[ext_resource type="Texture2D" uid="uid://cmwvly4r868ad" path="res://Sprites/Player/EmptyHearts.png" id="3_s3jbq"]
+[ext_resource type="Texture2D" uid="uid://dw82hjp5w4d1" path="res://Sprites/Player/NewHearts.png" id="4_c3eba"]
+[ext_resource type="Script" uid="uid://dw6n04mg531iy" path="res://Scenes/heart_bar.gd" id="5_c3eba"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_jo1ms")
+
+[node name="DopingBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -560.0
+offset_top = 86.0
+offset_right = -312.0
+offset_bottom = 115.0
+grow_horizontal = 2
+show_percentage = false
+script = ExtResource("1_jxero")
+
+[node name="DopingTimer" type="Timer" parent="DopingBar"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="HeartBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 269.0
+offset_bottom = 62.0
+focus_neighbor_bottom = NodePath("../DopingBar")
+max_value = 5.0
+value = 2.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_s3jbq")
+texture_progress = ExtResource("4_c3eba")
+script = ExtResource("5_c3eba")

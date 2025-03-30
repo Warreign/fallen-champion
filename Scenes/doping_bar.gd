@@ -1,6 +1,8 @@
+class_name DopingBar
+
 extends ProgressBar
 
-signal the_end
+signal doping_full
 
 var sb
 
@@ -10,23 +12,23 @@ var colorGreen = Color("00ff00")
 
 func _ready() -> void:
 	sb = StyleBoxFlat.new()
-	$".".add_theme_stylebox_override("fill", sb)
+	add_theme_stylebox_override("fill", sb)
 	sb.bg_color = colorRed
-	$".".max_value = $DopingTimer.wait_time
+	max_value = $DopingTimer.wait_time
 	$DopingTimer.start(0.1)
 
 func _process(delta: float) -> void:
-	var wt = $".".max_value
+	if $DopingTimer.is_stopped():
+		return
+
+	var wt = max_value
 	var tl = $DopingTimer.time_left
 	
-	if Input.is_action_just_pressed("doping"):
-		$DopingTimer.start(tl+wt/3)
-		tl = $DopingTimer.time_left
-	
 	if tl >= wt:
-		the_end.emit()
+		$DopingTimer.stop()
+		doping_full.emit()
 	
-	$".".value = tl
+	value = tl
 	
 	if tl < wt/2:
 		#red
@@ -36,3 +38,10 @@ func _process(delta: float) -> void:
 		#green
 		sb.bg_color = colorRed.lerp(colorOrange, (wt-tl)/(wt/2))
 		#sb.bg_color = colorGreen
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("doping"):
+		var wt = max_value
+		var tl = $DopingTimer.time_left
+		$DopingTimer.start(tl+wt/3)
+		tl = $DopingTimer.time_left

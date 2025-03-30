@@ -14,6 +14,7 @@ var is_dying := false
 var is_midair := false
 var is_falling := false
 var is_jumping := false
+var is_dead := false
 
 var original_height
 var target_height
@@ -21,6 +22,7 @@ var target_height
 var original_scale
 var target_scale
 var curr_speed = SPEED
+var running_time := 0.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var shape: CapsuleShape2D = $Colca.shape
@@ -36,14 +38,19 @@ func hit(position_x: float):
 	direction = -1
 	animated_sprite.play("hit")
 	$HitTimer.start()
+	HUD.heart_bar.decrement_hearts()
 	print("Hit obstacle")
 
 func die():
 	animated_sprite.play("die")
 	is_dying = true
+	is_dead = true
 	$DieTimer.start()
 
 func _ready() -> void:
+	HUD.doping_bar.connect("doping_full", die)
+	HUD.heart_bar.connect("player_died", die)
+
 	original_scale = $Colca.scale
 	target_scale = Vector2(original_scale.x, original_scale.y / 2)
 	original_height = shape.height
@@ -51,8 +58,9 @@ func _ready() -> void:
 	animated_sprite.play("idle")
 
 func _process(delta: float) -> void:
-	# print(get_gravity())
-	pass
+	if is_running:
+		running_time += delta
+	# print(running_time)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -68,12 +76,14 @@ func _physics_process(delta: float) -> void:
 	if is_dying or is_falling:
 		curr_speed = lerp(curr_speed, 0.0, SCALE_SPEED * delta)
 
+	if not is_running:
+		curr_speed = 0
+
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	velocity.x = direction * curr_speed
 
-	if is_running:
-		move_and_slide()
+	move_and_slide()
 
 	if is_on_floor():
 		if is_midair:

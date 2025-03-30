@@ -17,16 +17,17 @@ extends Area2D
 @onready var COLLIDER_BASE_HEIGHT: float = collider_shape.size.y
 
 func set_new_height(new_height: float):
-	print("New height " + str(new_height))
+	pass
+	# print("New height " + str(new_height))
 
-	var old_patch_rect = patch_rect.get_rect()
-	var old_collider_rect = collider_shape.get_rect()
+	# var old_patch_rect = patch_rect.get_rect()
+	# var old_collider_rect = collider_shape.get_rect()
 
-	var new_patch_rect = Rect2(old_patch_rect)
-	new_patch_rect.size.y = PATCH_BASE_HEIGHT * height_scale
-	patch_rect.set_region_rect(new_patch_rect)
+	# var new_patch_rect = Rect2(old_patch_rect)
+	# new_patch_rect.size.y = PATCH_BASE_HEIGHT * height_scale
+	# patch_rect.set_region_rect(new_patch_rect)
 
-	collider_shape.size.y = COLLIDER_BASE_HEIGHT * height_scale
+	# collider_shape.size.y = COLLIDER_BASE_HEIGHT * height_scale
 
 func _on_body_entered(body: Node) -> void:
 	if body is Player:

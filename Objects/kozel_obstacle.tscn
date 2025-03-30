@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkx774c5bwmtw"]
+
+[ext_resource type="PackedScene" uid="uid://c76fiu1h435lh" path="res://Objects/obstacle.tscn" id="1_dnk4r"]
+[ext_resource type="Texture2D" uid="uid://chlmfu13ec72o" path="res://Sprites/kozel_obstacle.png" id="2_oqr5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnk4r"]
+size = Vector2(37, 31)
+
+[node name="Obstacle" instance=ExtResource("1_dnk4r")]
+height_scale = 1.0
+
+[node name="NinePatchRect" parent="." index="0"]
+offset_top = -139.0
+offset_right = 67.0
+texture = ExtResource("2_oqr5d")
+region_rect = Rect2(0, 0, 48, 57)
+axis_stretch_horizontal = 0
+axis_stretch_vertical = 0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(30, -96)
+shape = SubResource("RectangleShape2D_dnk4r")

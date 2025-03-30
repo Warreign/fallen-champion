@@ -18,7 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 AudioManager="*res://Scenes/audio_manager.tscn"
-Ui="*res://Scenes/ui.tscn"
+HUD="*res://Scenes/HUD.tscn"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [input]
 
