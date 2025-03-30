@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bbt7namjs0g6t"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Start" type="Button" parent="."]
+offset_left = 449.0
+offset_top = 188.0
+offset_right = 658.0
+offset_bottom = 261.0
+text = "Start
+"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 449.0
+offset_top = 270.0
+offset_right = 658.0
+offset_bottom = 343.0
+text = "Quit
+
+"
